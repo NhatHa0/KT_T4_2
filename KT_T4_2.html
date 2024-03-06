@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
-    <form action="">
-        <label>Ten Dang Nhap</label>
-        <input type="text" id="txtusername">
-        <label>Password</label>
-        <input type="text" id="txtpassword">
-        <button>Dang Nhap</button>
+    <form id="loginForm">
+        <label for="txtusername">Ten dang nhap</label>
+        <input type="text" id="txtusername" name="username">
+        <label for="txtpassword">Mat khau</label>
+        <input type="password" id="txtpassword" name="password">
+        <button type="submit">Dang nhap</button>
     </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById("txtusername").value;
+            var password = document.getElementById("txtpassword").value;
+
+            if (username === "admin" && password === "admin") {
+
+                window.location.href = "index.html";
+            } else {
+                alert("Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
+        });
+    </script>
 </body>
 </html>
